@@ -1,4 +1,82 @@
 export default function() {
+
+	this.get('/posts/1', function() {
+		return {
+			data: {
+				type: 'post',
+				id: 1,
+				attributes: {
+					name: 'post textttt 1'
+				},
+				relationships: {
+					comments: {
+						data: [{
+							id: 1,
+							type: 'comment'
+						}]
+					}
+				}
+			}
+		};
+	});
+
+	this.get('/comments/1', function () {
+		return {
+			data: {
+				type: 'comment',
+				id: 1,
+				attributes: {
+					name: 'comment text 11111'
+				},
+				relationships: {
+					comments: {
+						data: [{
+							id: 2,
+							type: 'comment'
+						}]
+					}
+				}
+			}
+		};
+	});
+
+	this.get('/comments/2', function() {
+		return {
+			data: {
+				type: 'comment',
+				id: 2,
+				attributes: {
+					name: 'comment text 2'
+				},
+				relationships: {
+					comments: {
+						data: [{
+							id: 3,
+							type: 'comment'
+						}]
+					}
+				}
+			}
+		};
+	});
+
+	this.get('/comments/3', function() {
+		return {
+			data: {
+				type: 'comment',
+				id: 3,
+				attributes: {
+					name: 'comment text 3'
+				},
+				relationships: {
+					comments: {
+						data: []
+					}
+				}
+			}
+		};
+	});
+
 	this.get('/rentals', function(db, request) {
 		let rentals = [{
 			type: 'rentals',

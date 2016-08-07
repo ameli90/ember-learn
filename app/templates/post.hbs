@@ -1,0 +1,16 @@
+<h1>Mindk Wall</h1>
+
+{{#link-to "about"}}About{{/link-to}}
+{{#link-to "contact"}}Click here to contact us.{{/link-to}}
+{{#link-to "post"}}Posts and comments{{/link-to}}
+
+<br /><br />
+
+POST:
+{{model.name}}
+
+COMMENTS:
+<ul>
+	{{post-tree model=model}}
+</ul>
+

@@ -1,0 +1,8 @@
+{{#each model.comments as |item|}}
+	<li>{{item.name}}</li>
+	{{#if item.comments}}
+		<ul>
+			{{post-tree model=item}}
+		</ul>
+	{{/if}}
+{{/each}}
