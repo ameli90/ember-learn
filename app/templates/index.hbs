@@ -1,13 +1,19 @@
-<h1>Welcome to Super Rentals</h1>
+<div class="jumbo">
+	<div class="right tomster"></div>
+	<h2>Welcome!</h2>
+	<p>
+		We hope you find exactly what you're looking for in a place to stay.
+		<br>Browse our listings, or use the search box above to narrow your search.
+	</p>
+	{{#link-to 'about' class="button"}}
+		About Us
+	{{/link-to}}
+</div>
 
-<p>We hope you find exactly what you're looking for in a place to stay.</p>
-
-<br /><br />
-{{filter-listing filteredList=filteredList autoComplete=(action 'autoComplete') search=(action 'search')}}
-
-{{#each model as |rentalUnit|}}
-	{{rental-listing rental=rentalUnit}}
-{{/each}}
-
-{{#link-to "about"}}About{{/link-to}}
-{{#link-to "contact"}}Click here to contact us.{{/link-to}}
+{{#list-filter filter=(action 'filterByCity') as |rentals|}}
+	<ul class="results">
+		{{#each rentals as |rentalUnit|}}
+			<li>{{rental-listing rental=rentalUnit}}</li>
+		{{/each}}
+	</ul>
+{{/list-filter}}
